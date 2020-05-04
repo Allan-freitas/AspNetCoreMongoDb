@@ -1,9 +1,13 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+The project demonstrates the use of Asp.net Core 3.1 and mongodb together with Repository pattern. As soon as I have more time to work on this I will try to demonstrate how to use it with AutoMapper
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
+
+1.	Installation process is very simple, you just need to clone the projetct and restore all the packages (visual studio should do it for you), 
+	after that just use CTRL + F5  to start the projetct locally in you machine.
+	* [MongoDb Driver](https://docs.mongodb.com/drivers/csharp/) - MongoDb Driver
+	* [Asp.Net Core 3.1](https://asp.net/) - Net Core SDK 3.1 - The web framework used
+	* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 2.	Software dependencies
 3.	Latest releases
 4.	API references
