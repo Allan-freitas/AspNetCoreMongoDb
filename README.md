@@ -15,7 +15,7 @@ The project demonstrates the use of Asp.net Core 3.1 and mongodb together with R
 4.	API references
 
 # Build and Test
- * To build the solution (Visual Studio) you just need to use CTRL + F5.
+ * To build the solution (Visual Studio) you just need to use CTRL + Shift + B
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
