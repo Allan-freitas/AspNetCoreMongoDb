@@ -5,15 +5,17 @@ The project demonstrates the use of Asp.net Core 3.1 and mongodb together with R
 
 1.	Installation process is very simple, you just need to clone the projetct and restore all the packages (visual studio should do it for you), 
 	after that just use CTRL + F5  to start the projetct locally in you machine.
+2.	Software dependencies
 	* [MongoDb Driver](https://docs.mongodb.com/drivers/csharp/) - MongoDb Driver
 	* [Asp.Net Core 3.1](https://asp.net/) - Net Core SDK 3.1 - The web framework used
-	* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-2.	Software dependencies
+	* [MongoDB.Bson](https://docs.mongodb.com/manual/reference/bson-types/) - BSON is a binary serialization format used to store documents and make remote procedure calls in MongoDB.
+	* [AutoMapper](https://docs.automapper.org/en/stable/Getting-started.html) - AutoMapper is an object-object mapper.
+	* [FluentValidation](https://fluentvalidation.net/) - validation rules for a particular object
 3.	Latest releases
 4.	API references
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+ * To build the solution (Visual Studio) you just need to use CTRL + F5.
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
