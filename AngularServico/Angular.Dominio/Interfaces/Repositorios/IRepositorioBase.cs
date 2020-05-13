@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Angular.Dominio.Interfaces.Repositorios
 {
-    public interface IRepositorioBase<TDocument> where TDocument : EntityBase
+    public interface IRepositorioBase<TDocument> where TDocument : EntidadeBase
     {
         IQueryable<TDocument> AsQueryable();
 

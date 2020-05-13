@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Angular.Aplicacao.Servicos
 {
-    public class ServicoBase<TDocument> : IServicoBase<TDocument> where TDocument : EntityBase
+    public class ServicoBase<TDocument> : IServicoBase<TDocument> where TDocument : EntidadeBase
     {
         readonly IRepositorioBase<TDocument> _repositorioBase;
 

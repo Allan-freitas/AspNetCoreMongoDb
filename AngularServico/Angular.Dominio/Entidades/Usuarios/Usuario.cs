@@ -6,7 +6,7 @@ using System;
 namespace Angular.Dominio.Entidades.Usuarios
 {
     [BsonCollection("Usuario")]
-    public class Usuario : EntityBase
+    public class Usuario : EntidadeBase
     {
         public string Nome { get; set; }
 

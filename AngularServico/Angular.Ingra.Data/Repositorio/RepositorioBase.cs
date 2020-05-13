@@ -2,7 +2,6 @@
 using Angular.Dominio.Entidades;
 using Angular.Dominio.Interfaces.Repositorios;
 using Angular.Dominio.MongoDefinicoes;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Angular.Ingra.Data.Repositorio
 {
-    public class RepositorioBase<TDocument> : IRepositorioBase<TDocument> where TDocument : EntityBase
+    public class RepositorioBase<TDocument> : IRepositorioBase<TDocument> where TDocument : EntidadeBase
     {
         private readonly IMongoCollection<TDocument> _collection;
 

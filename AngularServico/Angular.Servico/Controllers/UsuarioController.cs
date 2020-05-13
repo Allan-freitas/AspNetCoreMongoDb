@@ -1,27 +1,28 @@
 ﻿using Angular.Aplicacao.DTO.Usuarios;
+using Angular.Aplicacao.Interfaces.Usuarios;
 using Angular.Dominio.Entidades.Usuarios;
-using Angular.Dominio.Interfaces.Servicos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Angular.Servico.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
-    {
-        readonly IServicoUsuario _servicoUsuario;
+    {        
+        readonly IAplicacaoUsuario _aplicacaoUsuario;
 
-        public UsuarioController(IServicoUsuario servicoUsuario)
+        public UsuarioController(IAplicacaoUsuario aplicacaoUsuario)
         {
-            _servicoUsuario = servicoUsuario;
+            _aplicacaoUsuario = aplicacaoUsuario;
         }
 
         [HttpGet]
         [Route("Usuarios")]
         public IActionResult Usuarios()
         {
-            return Ok(_servicoUsuario.AsQueryable());
+            return Ok(_aplicacaoUsuario.AsQueryable());
         }
 
         [HttpPost]
@@ -32,7 +33,7 @@ namespace Angular.Servico.Controllers
                 return StatusCode(StatusCodes.Status406NotAcceptable);
             else
             {
-                _servicoUsuario.InsertOne(new Usuario(usuarioDTO.Id, usuarioDTO.Nome, usuarioDTO.SobreNome, usuarioDTO.Email));
+                _aplicacaoUsuario.InsertOne(usuarioDTO);
                 return StatusCode(StatusCodes.Status201Created);
             }
         }
@@ -45,7 +46,7 @@ namespace Angular.Servico.Controllers
                 return StatusCode(StatusCodes.Status406NotAcceptable);
             else
             {
-                _servicoUsuario.ReplaceOne(new Usuario(usuarioDTO.Id, usuarioDTO.Nome, usuarioDTO.SobreNome, usuarioDTO.Email));
+                _aplicacaoUsuario.ReplaceOne(usuarioDTO);
                 return StatusCode(StatusCodes.Status201Created);
             }
         }
@@ -56,7 +57,7 @@ namespace Angular.Servico.Controllers
         {
             if (!string.IsNullOrEmpty(id))
             {
-                _servicoUsuario.DeleteByIdAsync(id);
+                _aplicacaoUsuario.DeleteByIdAsync(id);
                 return StatusCode(StatusCodes.Status200OK);
             }
             else

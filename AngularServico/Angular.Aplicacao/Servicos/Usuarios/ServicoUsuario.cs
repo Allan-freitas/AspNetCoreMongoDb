@@ -2,7 +2,7 @@
 using Angular.Dominio.Interfaces.Repositorios.Usuarios;
 using Angular.Dominio.Interfaces.Servicos;
 
-namespace Angular.Aplicacao.Servicos.Usuarios
+namespace Angular.Aplicacao.Servicos
 {
     public class ServicoUsuario : ServicoBase<Usuario>, IServicoUsuario
     {
