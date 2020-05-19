@@ -1,21 +1,15 @@
 # Introduction 
-The project demonstrates the use of Asp.net Core 3.1 and mongodb together with Repository pattern. As soon as I have more time to work on this I will try to demonstrate how to use it with AutoMapper
+TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
 # Getting Started
-
-1.	Installation process is very simple, you just need to clone the projetct and restore all the packages (visual studio should do it for you), 
-	after that just use CTRL + F5  to start the projetct locally in you machine.
+TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+1.	Installation process
 2.	Software dependencies
-	* [MongoDb Driver](https://docs.mongodb.com/drivers/csharp/) - MongoDb Driver
-	* [Asp.Net Core 3.1](https://asp.net/) - Net Core SDK 3.1 - The web framework used
-	* [MongoDB.Bson](https://docs.mongodb.com/manual/reference/bson-types/) - BSON is a binary serialization format used to store documents and make remote procedure calls in MongoDB.
-	* [AutoMapper](https://docs.automapper.org/en/stable/Getting-started.html) - AutoMapper is an object-object mapper.
-	* [FluentValidation](https://fluentvalidation.net/) - validation rules for a particular object
 3.	Latest releases
 4.	API references
 
 # Build and Test
- * To build the solution (Visual Studio) you just need to use CTRL + Shift + B
+TODO: Describe and show how to build your code and run the tests. 
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 

@@ -1,16 +1,15 @@
 ﻿using Angular.Aplicacao.DTO.Usuarios;
 using Angular.Aplicacao.Interfaces.Usuarios;
-using Angular.Dominio.Entidades.Usuarios;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace Angular.Servico.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
-    {        
+    {
         readonly IAplicacaoUsuario _aplicacaoUsuario;
 
         public UsuarioController(IAplicacaoUsuario aplicacaoUsuario)
@@ -23,6 +22,23 @@ namespace Angular.Servico.Controllers
         public IActionResult Usuarios()
         {
             return Ok(_aplicacaoUsuario.AsQueryable());
+        }
+
+        [HttpGet("{id}")]
+        [Route("GetUser")]
+        public async Task<IActionResult> GetUser(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+                return Ok(await _aplicacaoUsuario.GetUser(id));
+            else
+                return Ok("O parâmetro está faltando...");
+        }
+
+        [HttpGet]
+        [Route("GetUsers")]
+        public IActionResult GetUsers()
+        {
+            return Ok(_aplicacaoUsuario.GetUsers());
         }
 
         [HttpPost]

@@ -1,9 +1,15 @@
 using Angular.Infra.IoC;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Globalization;
+using System.Text;
 
 namespace Angular.Servico
 {
@@ -18,9 +24,27 @@ namespace Angular.Servico
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {            
             services.Registrar(Configuration);
-            services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("foo",
+                builder =>
+                {                    
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,8 +55,19 @@ namespace Angular.Servico
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
+            CultureInfo[] culturasSuportadas = new[]
+{
+                new CultureInfo("pt-BR")
+            };
 
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("pt-BR"),
+                SupportedCultures = culturasSuportadas
+            });
+
+            app.UseRouting();
+            app.UseCors("foo");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
